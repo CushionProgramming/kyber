@@ -22,6 +22,7 @@ int pqcrystals_kyber512_ref_keypair(uint8_t *pk, uint8_t *sk);
 int pqcrystals_kyber512_ref_enc_derand(uint8_t *ct, uint8_t *ss, const uint8_t *pk, const uint8_t *coins);
 int pqcrystals_kyber512_ref_enc(uint8_t *ct, uint8_t *ss, const uint8_t *pk);
 int pqcrystals_kyber512_ref_dec(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
+int pqcrystals_kyber512_ref_derive(uint8_t *pk, const uint8_t *sk);
 
 #define pqcrystals_kyber768_SECRETKEYBYTES 2400
 #define pqcrystals_kyber768_PUBLICKEYBYTES 1184
@@ -37,11 +38,12 @@ int pqcrystals_kyber512_ref_dec(uint8_t *ss, const uint8_t *ct, const uint8_t *s
 #define pqcrystals_kyber768_ref_ENCCOINBYTES pqcrystals_kyber768_ENCCOINBYTES
 #define pqcrystals_kyber768_ref_BYTES pqcrystals_kyber768_BYTES
 
-int pqcrystals_kyber768_ref_keypair_derand(uint8_t *pk, uint8_t *sk, const uint8_t *coins);
-int pqcrystals_kyber768_ref_keypair(uint8_t *pk, uint8_t *sk);
-int pqcrystals_kyber768_ref_enc_derand(uint8_t *ct, uint8_t *ss, const uint8_t *pk, const uint8_t *coins);
-int pqcrystals_kyber768_ref_enc(uint8_t *ct, uint8_t *ss, const uint8_t *pk);
-int pqcrystals_kyber768_ref_dec(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
+int pqcrystals_kyber768_ref_generate(uint8_t *pk, uint8_t *sk);
+int pqcrystals_kyber768_ref_encrypt(uint8_t *k, uint8_t * in_buf, uint32_t in_size, uint8_t * out_buf, uint32_t * out_size);
+int pqcrystals_kyber768_ref_decrypt(uint8_t *k, uint8_t * in_buf, uint32_t in_size, uint8_t * out_buf, uint32_t * out_size);
+int pqcrystals_kyber768_ref_derive(uint8_t *pk, uint8_t *sk);
+int pqcrystals_kyber768_ref_getCipherLen(uint32_t inlen);
+int pqcrystals_kyber768_ref_getPlainLen(uint32_t inlen);
 
 #define pqcrystals_kyber1024_SECRETKEYBYTES 3168
 #define pqcrystals_kyber1024_PUBLICKEYBYTES 1568
@@ -57,10 +59,11 @@ int pqcrystals_kyber768_ref_dec(uint8_t *ss, const uint8_t *ct, const uint8_t *s
 #define pqcrystals_kyber1024_ref_ENCCOINBYTES pqcrystals_kyber1024_ENCCOINBYTES
 #define pqcrystals_kyber1024_ref_BYTES pqcrystals_kyber1024_BYTES
 
-int pqcrystals_kyber1024_ref_keypair_derand(uint8_t *pk, uint8_t *sk, const uint8_t *coins);
-int pqcrystals_kyber1024_ref_keypair(uint8_t *pk, uint8_t *sk);
-int pqcrystals_kyber1024_ref_enc_derand(uint8_t *ct, uint8_t *ss, const uint8_t *pk, const uint8_t *coins);
-int pqcrystals_kyber1024_ref_enc(uint8_t *ct, uint8_t *ss, const uint8_t *pk);
-int pqcrystals_kyber1024_ref_dec(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
+int pqcrystals_kyber1024_ref_generate(uint8_t *pk, uint8_t *sk);
+int pqcrystals_kyber1024_ref_encrypt(uint8_t *k, uint8_t * in_buf, uint32_t in_size, uint8_t * out_buf, uint32_t * out_size);
+int pqcrystals_kyber1024_ref_decrypt(uint8_t *k, uint8_t * in_buf, uint32_t in_size, uint8_t * out_buf, uint32_t * out_size);
+int pqcrystals_kyber1024_ref_derive(uint8_t *pk, uint8_t *sk);
+int pqcrystals_kyber1024_ref_getCipherLen(uint32_t inlen);
+int pqcrystals_kyber1024_ref_getPlainLen(uint32_t inlen);
 
 #endif

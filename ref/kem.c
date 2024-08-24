@@ -167,3 +167,10 @@ int crypto_kem_dec(uint8_t *ss,
 
   return 0;
 }
+
+int crypto_kem_der(uint8_t *pk,
+	uint8_t *sk)
+{
+	memcpy(pk, sk + KYBER_INDCPA_SECRETKEYBYTES, KYBER_PUBLICKEYBYTES);
+	return 0;
+}
